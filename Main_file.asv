@@ -13,7 +13,7 @@ symbols = 10000;
 % No of type of bits
 M = 2^modtype;
 % Repetitions
-reps = 5; 
+reps = 3; 
 
 % Gray Map
 if modtype == 2
@@ -63,7 +63,6 @@ for k=1:len_snr
 
     % Derepeater
     decisions = Derepeater(decisions,reps,symbols);
-    
     %For gray encoded
     for n=1:symbols
         d_bin=dec2bin(decisions(n),modtype);

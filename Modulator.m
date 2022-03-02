@@ -9,7 +9,7 @@ function mod = Modulator(bits,M,gre)
     end
     amp = 2*amp/log2(M);
 
-    if M == 2
+    if M == 1
         % BPSK constellation
         a=[zeros(1,1) ones(1,1)];
         constellation = exp(1i*2*pi.*a/2);

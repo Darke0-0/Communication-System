@@ -1,0 +1,8 @@
+function derep = Derepeater(bits,reps)
+    derep = [];
+    for i=1:reps:length(bits)-reps
+        bit = bits(i:i-1+reps);
+        selected_bit = 
+        derep = [derep bit];
+    end
+end
