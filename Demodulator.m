@@ -1,20 +1,20 @@
 function decisions = Demodulator(symbols,received,M,gre)
 
-    alphaRe = [-(sqrt(M)-1):2:-1 1:2:sqrt(M)-1];
-    alphaIm = j*[-(sqrt(M)-1):2:-1 1:2:sqrt(M)-1];
-    decisions=zeros(symbols,1);
-    amp = 0;
-    for i=1:log2(M)
-        amp = amp + alphaRe(i)^2;
-    end
-    amp = 2*amp/log2(M);
-
     if M == 2
         % BPSK constellation
         a=[zeros(1,1);ones(1,1)];
         constellation = exp(1i*2*pi.*a/2);
 
     else
+        % Vector of Points
+        alphaRe = [-(sqrt(M)-1):2:-1 1:2:sqrt(M)-1];
+        alphaIm = j*[-(sqrt(M)-1):2:-1 1:2:sqrt(M)-1];
+        decisions=zeros(symbols,1);
+        amp = 0;
+        for i=1:log2(M)
+            amp = amp + alphaRe(i)^2;
+        end
+        amp = 2*amp/log2(M);
         % 16 QAM/QPSK constellation
         constellation = reshape(bsxfun(@plus,alphaRe,alphaIm'),1,[]);
         constellation = constellation(gre);

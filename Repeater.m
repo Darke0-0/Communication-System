@@ -1,15 +1,15 @@
 function rep = Repeater(bits,reps)
     rep = [];
-    new = zeros(reps,1);
+    temp = zeros(reps,1);
     for i=1:length(bits)
         % Selects the Bit
         bit = bits(i);
         % Repeats the bits
         for j=1:reps
-            new(j) = bit;
+            temp(j) = bit;
         end
         % Adds the bits
-        rep = [rep new'];
+        rep = [rep temp'];
     end
     rep = rep';
 end

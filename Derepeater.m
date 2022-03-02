@@ -6,5 +6,4 @@ function derep = Derepeater(bits,reps,symbols)
         bit = bits(i:i-1+reps);
         derep(j) = mode(bit);
     end
-    derep(j) = mode(bit);
 end
