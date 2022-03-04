@@ -1,4 +1,5 @@
-function decisions = Demodulator(symbols,received,M,gre)
+function decisions = Demodulator(received,M,gre)
+    decisions=zeros(length(received),1);
 
     if M == 2
         % BPSK constellation
@@ -9,7 +10,6 @@ function decisions = Demodulator(symbols,received,M,gre)
         % Vector of Points
         alphaRe = [-(sqrt(M)-1):2:-1 1:2:sqrt(M)-1];
         alphaIm = j*[-(sqrt(M)-1):2:-1 1:2:sqrt(M)-1];
-        decisions=zeros(symbols,1);
         amp = 0;
         for i=1:log2(M)
             amp = amp + alphaRe(i)^2;
